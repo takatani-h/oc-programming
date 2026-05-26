@@ -33,13 +33,18 @@ from OpenGL.GL import (
 
 # ── 定数 ──────────────────────────────────────────────────────────────
 WINDOW_W, WINDOW_H = 800, 600
-STL_PATH = "sample_car2.stl"
-# STL_PATH = "sample_car.stl"
+STL_PATH = "car.stl"
 BG_COLOR = (0.15, 0.15, 0.2, 1.0)
 
 CAR_SCALE = 2.0
 CAR_SPEED = 0.05
 CAR_TURN_SPEED = 2.0   # 旋回速度 (deg/frame)
+
+# car_angle=0 のとき STL の前方が OpenGL 空間のどの方向を向くか
+# "+Z", "-Z", "+X", "-X" から選択
+STL_FRONT = "+Z"
+
+_FRONT_OFFSET = {"+Z": 0.0, "-Z": math.pi, "+X": math.pi / 2, "-X": -math.pi / 2}
 
 GRID_CELL = 0.5   # グリッド間隔 (ワールド単位)
 GRID_HALF = 30    # 描画範囲: ±30 セル
@@ -207,11 +212,10 @@ def main():
         if keys[K_d]:
             car_angle -= CAR_TURN_SPEED
 
-        # W/S: 車体の向きに沿って前進・後退
-        # car_angle=0 で -Z 方向を前とし、Y 軸回転で向きを決める
-        rad = math.radians(car_angle)
-        fwd_x = -math.sin(rad)
-        fwd_z = -math.cos(rad)
+        # W/S: 車体の向きに沿って前進・後退 (STL_FRONT で前方を調整)
+        rad = math.radians(car_angle) + _FRONT_OFFSET[STL_FRONT]
+        fwd_x = math.sin(rad)
+        fwd_z = math.cos(rad)
         if keys[K_w]:
             car_x += fwd_x * CAR_SPEED
             car_z += fwd_z * CAR_SPEED
