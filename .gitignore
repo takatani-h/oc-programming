@@ -1,0 +1,47 @@
+# Python / uv
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# uv のローカルキャッシュ（uv.lock はコミットする）
+.uv/
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100/
+.Trashes/
+.fseventsd/
+
+# WSL / Linux
+*:Zone.Identifier
+.directory
+*~
+.nfs*
+
+# Editor swap and backup files
+*.swp
+*.swo
+*.bak
