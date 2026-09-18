@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>オープンキャンパス・ワークショップ｜Pythonプログラミング操作方法</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+</head>
+<body>
+  <header>
+    <nav aria-label="パンくずリスト">
+      <a href="./">このディレクトリへ戻る</a>
+    </nav>
+    <h1>オープンキャンパス・ワークショップ</h1>
+    <p>Pythonプログラミング操作方法／ミニカー・タイムアタック編</p>
+  </header>
+
+  <main>
+    <p>プログラミング言語Pythonで書かれたプログラムを変更して、ミニカーの動きを調整します。加速、ブレーキ、ハンドルの切れ方を自分で設定し、コースのゴールを目指します。</p>
+
+    <section>
+      <h2>1．プログラムの立ち上げと基本操作</h2>
+
+      <h3>1）プログラムを開く</h3>
+      <p>下のリンクURLをクリックして、ミニカー・タイムアタックのプログラムを開きます。</p>
+      <p><a href="https://kitao.github.io/pyxel/web/code-maker/?gist=efd559a4e924b5070721bd5d25819f4c">https://kitao.github.io/pyxel/web/code-maker/?gist=efd559a4e924b5070721bd5d25819f4c</a></p>
+      <p>プログラムを実行すると、コースとミニカーが画面に表示されます。</p>
+
+      <h3>2）ミニカーを操作する</h3>
+      <p>キーボードの矢印キーを使って、ミニカーを操作します。</p>
+      <table>
+        <thead>
+          <tr><th scope="col">キー</th><th scope="col">ミニカーの動き</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>上矢印キー</td><td>アクセル</td></tr>
+          <tr><td>下矢印キー</td><td>ブレーキ</td></tr>
+          <tr><td>左矢印キー</td><td>左に曲がる</td></tr>
+          <tr><td>右矢印キー</td><td>右に曲がる</td></tr>
+          <tr><td>Rキー</td><td>スタート地点からやり直す</td></tr>
+        </tbody>
+      </table>
+      <p>上矢印キーを押してミニカーを前進させ、左右の矢印キーで進む方向を変えます。</p>
+      <p>画面左上の「TIME」は、走り始めてからの時間です。ゴールすると、タイムの文字が黄色に変わり、計測が止まります。</p>
+      <p>コースから外れると「COURSE OUT!」と表示されます。Rキーを押すとスタート地点へ戻り、もう一度挑戦できます。</p>
+    </section>
+
+    <section>
+      <h2>2．プログラムを変更する方法</h2>
+      <p>プログラムでは、英単語の後ろにある数値を変えることで、ミニカーの動きを調整できます。</p>
+      <p>変更する数値は、次の3項目です。</p>
+      <pre><code class="language-python">TURN_SPEED = 0.8
+ACCELERATION = 0.03
+DECELERATION = 0.50</code></pre>
+      <p>数値を変更した後は、プログラムをもう一度実行して、ミニカーの動きを確認します。</p>
+    </section>
+
+    <section>
+      <h2>3．アクセルの効き方を変更する</h2>
+      <p>「ACCELERATION」は、アクセルを押したときの加速の大きさを表します。</p>
+      <pre><code class="language-python">ACCELERATION = 0.03</code></pre>
+      <ol>
+        <li>プログラムから「ACCELERATION」を探します。</li>
+        <li>「0.03」を別の数値に変更します。</li>
+        <li>プログラムを実行します。</li>
+        <li>上矢印キーを押し、加速の違いを確認します。</li>
+      </ol>
+      <p>数値を大きくすると、短い時間で速度が上がります。数値を小さくすると、ゆっくり加速します。</p>
+      <p>数値を大きくしすぎると、急に速度が上がり、カーブを曲がりにくくなります。コースを走りやすい値に調整します。</p>
+    </section>
+
+    <section>
+      <h2>4．ブレーキの効き方を変更する</h2>
+      <p>「DECELERATION」は、ブレーキを押したときに速度を下げる大きさを表します。</p>
+      <pre><code class="language-python">DECELERATION = 0.50</code></pre>
+      <ol>
+        <li>プログラムから「DECELERATION」を探します。</li>
+        <li>「0.50」を別の数値に変更します。</li>
+        <li>プログラムを実行します。</li>
+        <li>ミニカーを走らせ、下矢印キーを押してブレーキの効き方を確認します。</li>
+      </ol>
+      <p>数値を大きくすると、短い時間で速度が下がります。数値を小さくすると、ゆっくり減速します。</p>
+      <p>このミニカーは、ブレーキを押し続けてもバックしません。速度が0になると停止します。</p>
+    </section>
+
+    <section>
+      <h2>5．ハンドルの切れ方を変更する</h2>
+      <p>「TURN_SPEED」は、左右の矢印キーを押したときに向きが変わる大きさを表します。</p>
+      <pre><code class="language-python">TURN_SPEED = 0.8</code></pre>
+      <ol>
+        <li>プログラムから「TURN_SPEED」を探します。</li>
+        <li>「0.8」を別の数値に変更します。</li>
+        <li>プログラムを実行します。</li>
+        <li>ミニカーを走らせ、左右の矢印キーを押して曲がり方を確認します。</li>
+      </ol>
+      <p>数値を大きくすると、ハンドルが大きく切れ、急なカーブを曲がりやすくなります。数値を小さくすると、ミニカーの向きがゆっくり変わります。</p>
+      <p>数値を大きくしすぎると、ミニカーの向きを細かく調整することが難しくなります。</p>
+    </section>
+
+    <section>
+      <h2>6．ミニカーの調整チャレンジ</h2>
+      <p>アクセル、ブレーキ、ハンドルの切れ方を組み合わせて、コースを走りやすいミニカーに調整します。</p>
+      <p>調整するときは、一度に多くの数値を変えず、1項目ずつ変更すると、動きの違いが分かりやすくなります。</p>
+      <ol>
+        <li>ACCELERATIONを変更し、加速を確認します。</li>
+        <li>DECELERATIONを変更し、ブレーキの効き方を確認します。</li>
+        <li>TURN_SPEEDを変更し、カーブの曲がりやすさを確認します。</li>
+        <li>コースを最後まで走れるように、数値を調整します。</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>7．タイムアタック</h2>
+      <p>ミニカーの調整が終わったら、スタートからゴールまでのタイムに挑戦します。</p>
+      <ol>
+        <li>Rキーを押して、ミニカーをスタート地点へ戻します。</li>
+        <li>上矢印キーを押すと、タイムの計測が始まります。</li>
+        <li>コースアウトしないように、ゴールを目指します。</li>
+        <li>ゴール後に表示されたタイムを確認します。</li>
+        <li>さらに速く走れるように数値を調整し、もう一度挑戦します。</li>
+      </ol>
+      <p>速く走るためには、最高速度だけでなく、加速、ブレーキ、曲がりやすさのバランスが重要です。</p>
+    </section>
+
+    <section>
+      <h2>8．完成</h2>
+      <p>Pythonの数値を変更して、自分で調整したミニカーが完成しました。プログラムでは、数値や条件を少し変えるだけでも、画面の中のものの動きを変えることができます。</p>
+      <p>このオープンキャンパスの記録をホワイトボードにメモしています。最高記録を目指しましょう！</p>
+    </section>
+
+    <section>
+      <h2>おまけ．このプログラムで使ったPython</h2>
+
+      <h3>変数</h3>
+      <pre><code class="language-python">ACCELERATION = 0.03</code></pre>
+      <p>「ACCELERATION」という名前に「0.03」という数値を入れています。このように、数値などのデータに名前を付けて保存するものを変数といいます。</p>
+
+      <h3>条件分岐</h3>
+      <pre><code class="language-python">if pyxel.btn(pyxel.KEY_UP):</code></pre>
+      <p>「if」は、決められた条件が成り立つときだけ処理を行う命令です。このプログラムでは、上矢印キーが押されているかどうかを調べています。</p>
+
+      <h3>数値の計算</h3>
+      <pre><code class="language-python">car_speed = min(car_speed + ACCELERATION, 2)</code></pre>
+      <p>現在の速度に「ACCELERATION」の値を加えて、ミニカーを加速させています。「min」を使うことで、速度が2を超えないようにしています。</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>オープンキャンパス・ワークショップ</p>
+  </footer>
+</body>
+</html>
