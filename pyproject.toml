@@ -1,9 +1,9 @@
 [project]
-name = "oc-programming"
+name = "pyxel-tutorial"
 version = "0.1.0"
-requires-python = ">=3.14"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
 dependencies = [
-    "numpy-stl>=3.2.0",
-    "pygame>=2.6.1",
-    "pyopengl>=3.1.10",
+    "pyxel>=2.9.8",
 ]
